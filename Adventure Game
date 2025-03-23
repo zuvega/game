@@ -1,0 +1,98 @@
+def start_game():
+    print("Welcome to the Adventure Game!")
+    player_name = input("Enter your name: ")
+    print(f"Hello, {player_name}! Let's begin your adventure.")
+    current_location = "forest"
+    inventory = []
+    play_game(current_location, inventory)
+
+    
+def play_game(current_location, inventory):
+    while True:
+        if current_location == "forest":
+            print("\nYou are in a dark forest. There are paths to the north, east, south, and west.")
+            action = input("What do you do? (north/east/south/west/inventory/quit): ").lower()
+            if action == "north":
+                current_location = "cave"
+            elif action == "east":
+                current_location = "river"
+            elif action == "south":
+                current_location = "village"
+            elif action == "west":
+                print("You can't go that way.")
+            elif action == "inventory":
+                print("Inventory:", inventory)
+            elif action == "quit":
+                print("Thanks for playing!")
+                break
+            else:
+                print("Invalid action.")
+
+        elif current_location == "cave":
+            print("\nYou are in a dark cave. You see a shiny key.")
+            action = input("What do you do? (take key/leave/inventory/quit): ").lower()
+            if action == "take key":
+                inventory.append("shiny key")
+                print("You took the shiny key.")
+            elif action == "leave":
+                current_location = "forest"
+            elif action == "inventory":
+                print("Inventory:", inventory)
+            elif action == "quit":
+                print("Thanks for playing!")
+                break
+            else:
+                print("Invalid action.")
+
+        elif current_location == "river":
+             print("\nYou are at a river. You can swim or go back.")
+             action = input("What do you do? (swim/back/inventory/quit): ").lower()
+             if action == "swim":
+                 print("You swam across the river.")
+                 current_location = "far_side_river"
+             elif action == "back":
+                 current_location = "forest"
+             elif action == "inventory":
+                print("Inventory:", inventory)
+             elif action == "quit":
+                print("Thanks for playing!")
+                break
+             else:
+                 print("Invalid action.")
+
+        elif current_location == "far_side_river":
+            print("\nYou are on the other side of the river. You see a treasure chest.")
+            action = input("What do you do? (open chest/back/inventory/quit): ").lower()
+            if action == "open chest":
+                if "shiny key" in inventory:
+                    print("Congratulations! You opened the chest and found treasure! You win!")
+                    break
+                else:
+                    print("You need a key to open the chest.")
+            elif action == "back":
+                current_location = "river"
+            elif action == "inventory":
+                print("Inventory:", inventory)
+            elif action == "quit":
+                print("Thanks for playing!")
+                break
+            else:
+                print("Invalid action.")
+
+        elif current_location == "village":
+            print("\nYou are in a village. You can talk to the villagers or go back.")
+            action = input("What do you do? (talk/back/inventory/quit): ").lower()
+            if action == "talk":
+                print("Villager: Hello traveler!")
+            elif action == "back":
+                current_location = "forest"
+            elif action == "inventory":
+                print("Inventory:", inventory)
+            elif action == "quit":
+                print("Thanks for playing!")
+                break
+            else:
+                print("Invalid action.")
+
+                
+start_game()
