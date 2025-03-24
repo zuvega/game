@@ -1,7 +1,6 @@
-#"Summer day on the island of Kauai you find yourself on a hiking trail."
-#"Locals warn you to stay on the marked trails, you choose to continue anyway."
-#"Along the trail you come across a cave."
-
+# "Summer day on the island of Kauai you find yourself on a hiking trail."
+# "Locals warn you to stay on the marked trails, you choose to continue anyway."
+# "Along the trail you come across a cave."
 
 import time
 import random
@@ -62,20 +61,20 @@ def play_game(current_location, inventory):
                 print("Invalid action.")
 
         elif current_location == "river":
-             print_pause("\nYou are at a river. You can swim or go back.")
-             action = input("What do you do? (swim/back/inventory/quit): ").lower()
-             if action == "swim":
-                 print("You swam across the river.")
-                 current_location = "far_side_river"
-             elif action == "back":
-                 current_location = "forest"
-             elif action == "inventory":
+            print_pause("\nYou are at a river. You can swim or go back.")
+            action = input("What do you do? (swim/back/inventory/quit): ").lower()
+            if action == "swim":
+                print("You swam across the river.")
+                current_location = "far_side_river"
+            elif action == "back":
+                current_location = "forest"
+            elif action == "inventory":
                 print("Inventory:", inventory)
-             elif action == "quit":
+            elif action == "quit":
                 print("Thanks for playing!")
                 break
-             else:
-                 print("Invalid action.")
+            else:
+                print("Invalid action.")
 
         elif current_location == "far_side_river":
             print_pause("\nYou are on the other side of the river. You see a treasure chest.")
