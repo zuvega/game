@@ -10,7 +10,13 @@ def print_pause(message_to_print):
     print(message_to_print)
     time.sleep(1.8)
 
-def main_choice(items):
+class location(object):
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.inventory = []
+
+def game():
     print_pause("Welcome to the Adventure Game!")
     player_name = input("Enter your name: ")
     print_pause(f"Hello, {player_name}! Let's begin your adventure.")
@@ -18,12 +24,6 @@ def main_choice(items):
     inventory = []
     play_game(current_location, inventory)
 
-class Player(object):
-    def __init__(self, name, location):
-        self.name = name
-        self.location = location
-        self.inventory = []
-    
 def play_game(current_location, inventory):
     while True:
         if current_location == "forest":
