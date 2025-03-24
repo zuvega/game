@@ -1,3 +1,8 @@
+#"Summer day on the island of Kauai you find yourself in a hiking trail."
+#"Locals warn you to stay on the marked trails, you choice to continue anyway."
+#"along the trail you come across a cave."
+
+
 import time
 import random
 
@@ -7,15 +12,17 @@ def print_pause(message_to_print):
 
 def main_choice(items):
     print_pause("Welcome to the Adventure Game!")
-    print_pause("Summer day on the island of Kauai you find yourself in a hiking trail.")
-    print_pause("Locals warn you to stay on the marked trails, you choice to continue anyway.")
-    print_pause("along the trail you come across a cave.")
     player_name = input("Enter your name: ")
     print_pause(f"Hello, {player_name}! Let's begin your adventure.")
     current_location = "forest"
     inventory = []
     play_game(current_location, inventory)
 
+class Player(object):
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.inventory = []
     
 def play_game(current_location, inventory):
     while True:
